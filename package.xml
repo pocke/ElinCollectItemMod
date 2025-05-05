@@ -7,7 +7,7 @@
   <loadPriority>100</loadPriority>
   <version>0.23.129</version>
   <description>
-(English is following)
+(English is following Japanese.)
 
 このMODは、現在いるマップ内のアイテムを全て回収するショートカットキーを追加します。
 
@@ -18,5 +18,7 @@ Add a shortcut key to collect all items in the current map.
 
 The shortcut key is the same as running the Collect acion in the build menu with Ignore Installed and Multiple options. The collection range is the entire current map.
 You can configure the shortcut key from "SteamLibrary\steamapps\common\Elin\BepInEx\config\me.pocke.collect-item.cfg".
+
+https://github.com/pocke/ElinCollectItemMod
   </description>
 </Meta>
