@@ -11,7 +11,7 @@ internal static class ModInfo
 {
     internal const string Guid = "me.pocke.collect-item";
     internal const string Name = "Collect Item Mod";
-    internal const string Version = "1.0";
+    internal const string Version = "1.0.1";
 }
 
 [BepInPlugin(ModInfo.Guid, ModInfo.Name, ModInfo.Version)]
@@ -32,6 +32,11 @@ internal class CollectItem : BaseUnityPlugin
         }
 
         if (!EClass._zone.IsPCFaction)
+        {
+            return;
+        }
+
+        if (!EClass._zone.CanEnterBuildModeAnywhere)
         {
             return;
         }
