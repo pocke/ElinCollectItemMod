@@ -31,20 +31,21 @@ internal class CollectItem : BaseUnityPlugin
       return;
     }
 
-    if (!EClass._zone.IsPCFaction)
-    {
-      return;
-    }
-
-    if (!EClass._zone.CanEnterBuildModeAnywhere)
-    {
-      return;
-    }
-
-
     if ((Settings.KeyCodeMod == KeyCode.None || Input.GetKey(Settings.KeyCodeMod)) && Input.GetKeyDown(Settings.KeyCode))
     {
-      Logger.LogInfo("CollectItem: Key pressed. Starting collection.");
+      if (!EClass._zone.IsPCFaction)
+      {
+        Msg.Say(Lang.isJP ? "アイテムを回収できるのはPC陣営だけです。" : "Only PC faction can collect items.");
+        SE.CancelAction();
+        return;
+      }
+
+      if (!EClass._zone.CanEnterBuildModeAnywhere)
+      {
+        Msg.Say(Lang.isJP ? "盟約の石レベルが十分ではありません。" : "Your Hearth Stone level is not high enough.");
+        SE.CancelAction();
+        return;
+      }
 
       Point.map.ForeachPoint(point =>
       {
